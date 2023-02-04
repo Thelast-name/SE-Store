@@ -3,9 +3,9 @@ session_start();
 require_once('myscript/Myscript.php');
 $db_handle = new myDBControl();
 
-// if(empty($_SESSION['username']) &&  empty($_SESSION['Id'])){
-//   header('location: login.php');
-// }
+if(empty($_SESSION['username']) &&  empty($_SESSION['Id'])){
+   header('location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
