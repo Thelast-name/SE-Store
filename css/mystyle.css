@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    /* margin: 3px 3px 0; */
+    width: 100%;
+    height: 50px;
+    background: #fff;
+}
+
+.header .title {
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.header ul.menuber {
+    font-size: 12pt;
+    list-style: none;
+    float: right;
+    margin-top: 10px;
+}
+
+.header ul.menuber li {
+    float: left;
+    margin-right: 10px;
+}
+
+.header ul.menuber li a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.header ul.menuber li a:hover {
+    color: red;
+    font-weight: bolder;
+    border-bottom: 2px solid red;
+    padding-bottom: 0px;
+}
+
+/* .pe {
+    text-align: end;
+} */
+
+.main {
+    width: 960px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.main .banner {
+    width: 100%;
+    background: url('../img/shoppingBanner.png') no-repeat;
+    height: 330px;
+    background-size: 960px 330px;
+    background-position: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.main .banner2 {
+    width: 100%;
+    height: 150px;
+    background: url("https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+      no-repeat;
+    margin-top: 5px;
+    background-size: 960px 200px;
+}
+
+.main .product {
+    width: 100%;
+}
+
+.main .info {
+    width: 100%;
+    height: 300px;
+    margin-top: 5px;
+    background-color: #F1A661;
+    font-size: 14pt;
+    color: #333;
+}
+
+.main .info img {
+    width: 250px;
+    height: 250px;
+    margin: 15px 40px 15px;
+    padding-top: 20px;
+    float: left;
+    border-radius: 50%;
+}
+
+.main .info .infotext {
+    line-height: 35px;
+    float: right;
+    margin-right: 130px;
+    margin-top: 45px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-column-gap: 10px;
+    grid-auto-rows: max-content;
+    margin: 1.2rem 0 0 0;
+  }
+  
+.imgProduct {
+    width: 70%;
+    align-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.8rem;
+}
+  
+.crad {
+    border: 1px solid black;
+    padding: 0.8rem;
+    margin: 5px 0px;
+    border-radius: 5px;
+    position: relative;
+}
+  
+.Cradbody {
+    font-size: 15px;
+    line-height: 1.5rem;
+}
+
+.Cradbody2 {
+    font-size: 15px;
+    line-height: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.crad-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+}
+
+.btn_pro_id {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    margin-top: auto;
+}
+
+
+.display_product {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.detalis-img {
+    height: 150px;
+    width: auto;
+    margin: 10px;
+}
+
+.detali-text {
+    padding-left: 3rem;
+    line-height: 1.5rem;
+}
+
+.details-product {
+    padding-top: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.h {
+    margin-bottom: 30px;
+}
+
+.page-login {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+}
+  
+.col-1,
+.col-2 {
+    text-align: center;
+    margin: 45px 0;
+}
+  
+.form-login {
+    margin-top: 15px;
+}
+.username,
+.pass {
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 70%;
+    text-align: center;
+}
+
+.error {
+    color: #ff0032;
+    height: 40px;
+    margin: auto;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+  
+.i {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+
+    border: none;
+    border-bottom: 1px solid #00425A;
+}
+
+.i:focus {
+    outline: none;
+}
+  
+.fg {
+    margin: 10px auto;
+}
+  
+.fg a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 40px;
+}
+  
+.bli {
+    margin-top: 20px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: green;
+    color: #fff;
+}
+  
+.bli:hover {
+    background-color: greenyellow;
+}
+  
+.contact {
+    margin-top: 10px;
+    line-height: 40px;
+    font-size: 18px;
+}
+  
+.s {
+    margin: 0 15px;
+    align-self: center;
+}
+  
+.a-img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+  
+.text-footer {
+    margin: 15px 0;
+    padding: 15px;
+}
+  
+.t {
+    margin: 20px 0;
+}
+
+.footer {
+    background: #333;
+    margin-top: 10px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+
+.h23 {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .f {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .d {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .inp {
+    margin: 10px;
+    padding: 3px;
+    /* border-radius: 5px; */
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+  }
+  
+  .inp:focus {
+    outline: none;
+  }
+  
+  .bu {
+    margin-top: 15px;
+  }
+  
+  .btn-i {
+    padding: 4px 10px;
+    font-size: 16px;
+    background-color: green;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    margin-right: 14rem;
+  }
+  
+  .btn-v {
+    padding: 3px 5px;
+    background-color: #FED049;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .btn-v a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .pim {
+    width: 80px;
+    margin: 0 40px;
+  }
+  
+  .btn-d {
+    padding: 3px 5px;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+  }  
+
+  .l {
+    width: 25%;
+  }
+
+  .img-p {
+    margin: 20px auto;
+
+  }
+
+  .h33 {
+    margin: 25px auto;
+  }
+
+  .tb {
+    margin: auto;
+  }
+
+  .tdt {
+    padding: 5px 10px;
+    text-align: start;
+  }
+
+  .lp {
+    margin-left: 11rem;
+  }
