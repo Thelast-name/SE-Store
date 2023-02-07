@@ -32,7 +32,7 @@
   </div>
   <?php 
     $id = $_SESSION['Id'];
-    $myProfile = $db_handle->Textquery("SELECT *, SUM(INVOICE_DETAIL.Product_num) AS sum_pro, SUM(INVOICE_DETAIL.Product_num * INVOICE_DETAIL.Product_price) AS price, COUNT(*) AS n FROM CUSTOMER INNER JOIN INVOICE ON CUSTOMER.Cust_id = INVOICE.Inv_cust INNER JOIN INVOICE_DETAIL ON INVOICE.Inv_no = INVOICE_DETAIL.Inv_no WHERE Inv_cust = '$id'");
+    $myProfile = $db_handle->Textquery("SELECT *, SUM(INVOICE_DETAIL.Product_num) AS sum_pro, SUM(INVOICE_DETAIL.Product_num * INVOICE_DETAIL.Product_price) AS price, COUNT(DISTINCT INVOICE.Inv_no) AS n FROM CUSTOMER INNER JOIN INVOICE ON CUSTOMER.Cust_id = INVOICE.Inv_cust INNER JOIN INVOICE_DETAIL ON INVOICE.Inv_no = INVOICE_DETAIL.Inv_no WHERE Inv_cust = '$id'");
   ?>
   <div class="main">
     <h2 class="h23">My Profile</h2>

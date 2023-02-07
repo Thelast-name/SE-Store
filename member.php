@@ -40,7 +40,7 @@ if(empty($_SESSION['username']) &&  empty($_SESSION['Id'])){
       <div class="col-1">
         <div class="d">
           <p class="lp">Display All Data</p>
-          <button class="btn-i">New Data</button>
+          <button class="btn-i"><a href="?st=A">New Data</a></button>
         </div>
         <table class="tb">
           <?php
@@ -52,8 +52,8 @@ if(empty($_SESSION['username']) &&  empty($_SESSION['Id'])){
               <td class="tdt"><?php echo $cus[$n]['Cust_id']; ?></td>
               <td class="tdt"><?php echo $cus[$n]['Cust_prename'] . $cus[$n]['Cust_firstname'] . " " . $cus[$n]['Cust_lastname']; ?></td>
               <td class="tdt">
-                <button class="btn-v"><a href="?id=<?php echo $cus[$n]['Cust_id']; ?>">view</a></button>
-                <button class="btn-d">delete</button>
+                <button class="btn-v"><a href="?st=V&id=<?php echo $cus[$n]['Cust_id']; ?>">view</a></button>
+                <button class="btn-d"><a href="MemberProcess.php?st=D&id=<?php echo $cus[$n]['Cust_id']; ?>" onclick="return confirm('ยีนยันการลบ?');">delete</a></button>
               </td>
             </tr>
           <?php } ?>
@@ -61,51 +61,70 @@ if(empty($_SESSION['username']) &&  empty($_SESSION['Id'])){
       </div>
       <div class="col-2">
         <?php 
-        if(!empty($_GET['id'])){
-          $id = $_GET['id'];
-          $sp = $db_handle->Textquery("SELECT * FROM CUSTOMER INNER JOIN MEMBER_LEVEL ON CUSTOMER.Cust_level = MEMBER_LEVEL.Lev_id WHERE Cust_id = '$id' ");
-        }else {
-          $id = '';
-          $sp = $db_handle->Textquery("SELECT * FROM CUSTOMER INNER JOIN MEMBER_LEVEL ON CUSTOMER.Cust_level = MEMBER_LEVEL.Lev_id WHERE Cust_id = '$id' ");
+        $id = $cus[0]['Cust_id'];
+         if(isset($_GET['st'])){
+          $st = $_GET['st'];
+          if(!empty($_GET['st']) == 'V'){
+            if(!empty($_GET['id'])){
+              $id = $_GET['id'];
+            }
+          }
+          
+          if($_GET['st'] == "A"){
+            $id = "";
+          }
         }
+        $sp = $db_handle->Textquery("SELECT * FROM CUSTOMER INNER JOIN MEMBER_LEVEL ON CUSTOMER.Cust_level = MEMBER_LEVEL.Lev_id WHERE Cust_id = '$id' ");
         ?>
-        <p>id: <?php echo $sp[0]['Cust_id']; ?></p>
+        <form action="MemberProcess.php?st=<?php echo $st; ?>" method="post">
+        <div class="f">
+          <label class="l">Member ID</label>
+          <input type="text" name="cid" class="inp" value="<?php echo $sp[0]['Cust_id']; ?>"/>
+        </div>
         <div class="f">
           <label class="l">User Name</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_UN']; ?>" />
+          <input type="text" name="Uname" class="inp" value="<?php echo $sp[0]['Cust_UN']; ?>" />
         </div>
         <div class="f">
           <label class="l">Password</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_PW']; ?>" />
+          <input type="text" name="passwd" class="inp" value="<?php echo $sp[0]['Cust_PW']; ?>" />
         </div>
         <div class="f">
           <label class="l">Prename</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_prename']; ?>"/>
+          <input type="text" name="prename" class="inp" value="<?php echo $sp[0]['Cust_prename']; ?>"/>
         </div>
         <div class="f">
           <label class="l">Member name</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_firstname'] . " " . $sp[0]['Cust_lastname']; ?>" />
+          <input type="text" name="fname" class="inp" value="<?php echo $sp[0]['Cust_firstname']; ?>" />
+          <input type="text" name="lname" class="inp" value="<?php echo $sp[0]['Cust_lastname']; ?>" />
         </div>
         <div class="f">
           <label class="l">Member Level</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Lev_descript']; ?>"/>
+          <select name="nlevel" class="inp">
+            <?php 
+            $mem_le = $db_handle->Textquery("SELECT * FROM MEMBER_LEVEL");
+              foreach($mem_le as $key => $v){ ?>
+                <option value="<?php echo $mem_le[$key]['Lev_id']; ?>"><?php echo $mem_le[$key]['Lev_descript']; ?></option>
+              <?php }?>
+          </select>
         </div>
         <div class="f">
           <label class="l">Brithday</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_birth']; ?>"/>
+          <input type="text" name="brith" class="inp" value="<?php echo $sp[0]['Cust_birth']; ?>"/>
         </div>
         <div class="f">
           <label class="l">Address</label>
-          <textarea name="" id="" cols="15" rows="5" class="inp"><?php echo $sp[0]['Cust_address']; ?></textarea>
+          <textarea name="address" cols="15" rows="5" class="inp"><?php echo $sp[0]['Cust_address']; ?></textarea>
         </div>
         <div class="f">
           <label class="l">Telephone</label>
-          <input type="text" name="" class="inp" value="<?php echo $sp[0]['Cust_tel']; ?>" />
+          <input type="text" name="tel" class="inp" value="<?php echo $sp[0]['Cust_tel']; ?>" />
         </div>
         <div class="bu">
           <img class="pim" src="<?php echo $sp[0]['Cust_picture']; ?>" />
-          <button class="btn-i">Insert/Update data</button>
+          <button class="btn-i" type="submit">Insert/Update data</button>
         </div>
+        </form>
       </div>
     </div>
   </div>

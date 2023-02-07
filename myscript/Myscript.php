@@ -4,9 +4,9 @@ class myDBControl
 {
     /*กำหนดตัวแปรเกี่ยวกับการติดต่อฐานข้อมูล*/
     private $host = "localhost";
-    private $user = "";
-    private $password = "";
-    private $database = "";
+    private $user = "std6516101";
+    private $password = "pro6516101";
+    private $database = "5672301DB";
     private $conn;
 
     /*ฟังก์ชันหลัก สำหรับกำหนดค่าเริ่มต้นก่อนใช้งาน*/

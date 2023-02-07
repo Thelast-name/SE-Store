@@ -37,11 +37,11 @@ session_start();
                     <div class="login">
                         <div class="username">
                             <label class="s">User name:</label>
-                            <input class="i" type="text" name="username" placeholder="User name">
+                            <input class="i" type="text" name="username" placeholder="User name" value="E0001">
                         </div>
                         <div class="pass">
-                            <label class="s">Passworld:</label>
-                            <input class="i" type="password" name="pass" placeholder="Password">
+                            <label class="s">Password:</label>
+                            <input class="i" type="password" name="pass" placeholder="Password" value="qwerty">
                         </div>
                         <p class="fg"><a href="#">forgot password ?</a></p>
                         <button class="bli" type="submit" name="login">Login</button>
